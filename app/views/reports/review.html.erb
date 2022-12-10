@@ -1,0 +1,35 @@
+<%= render(partial: 'shared/navigation', locals: {title: "REPORTS HOME PAGE"}) %>
+
+<div class="reports_box">
+  <div class="report_top">
+    <div class="report_drop_down">
+    </div>
+    <div class="report_buttons">
+      <%= link_to reports_review_path(format: :csv, record_id: @records.map(&:id)), data: { turbolinks: false }, class: "report_button" do %>
+        <p>EXPORT METRICS</p>
+        <i class="fa fa-file-excel-o"></i>
+      <% end %>
+      <a href="#" id="pdf_button" class="report_button">
+        <p>PRINT PDF COPY</p>
+        <i class="fa fa-file-pdf-o"></i>
+      </a>
+    </div>
+  </div>
+
+  <% @records.each do |record| %>
+    <%= render(partial: 'review_record', locals: {record: record}) %>
+    <% if @granule_associations[record.id] == 'Undefined' %>
+      <div class="surrounding_box">
+        <p class="granule_association_message">No Associated Granule Information</p>
+      </div>
+    <% else %>
+      <% if @granule_associations[record.id] == 'No Granule Review' %>
+        <div class="surrounding_box">
+          <p class="granule_association_message">No Granule Review</p>
+        </div>
+      <% else %>
+        <%= render(partial: 'review_record', locals: {record: @granule_associations[record.id]}) %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

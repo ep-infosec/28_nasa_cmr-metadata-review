@@ -1,0 +1,130 @@
+.center_text {
+  text-align: center;
+}
+
+.table-scroll {
+}
+
+.curation_box {
+  background-color: white;
+  border: solid 2px;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 1000px;
+
+  .record_filters {
+    margin-bottom: 30px;
+
+    &__filters {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__select {
+      display: flex;
+      flex-direction: column;
+      height: 70px;
+      margin: 10px 20px 0 0;
+    }
+
+    .selectButton {
+      height: 40px;
+      margin-top: auto;
+      margin-bottom: 10px;
+    }
+  }
+
+  .space_box {
+    height: 15px;
+    width: 80px;
+  }
+
+  .searchbox_area {
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: $gray-dark;
+    font-size: 0.8em;
+    padding-bottom: 20px;
+    margin-right: 20px;
+
+    .search_button {
+      height: 38px;
+      width: 38px;
+      font-size: 1.2em;
+    }
+
+    select {
+      height: 38px;
+      padding-left: 1 0px;
+      width: 150px;
+    }
+
+    button {
+      background-color: $green-light;
+      border: 0;
+      color: white;
+    }
+
+    input[type=text] {
+      height: 38px;
+      width: 623px;
+    }
+  }
+
+
+
+  input[type=radio] {
+    -webkit-box-shadow: rgba(0, 0, 0, 0) 0 0 0;
+    -moz-box-shadow: rgba(0, 0, 0, 0) 0 0 0;
+    box-shadow: rgba(0, 0, 0, 0) 0 0 0;
+  }
+
+
+  .results-area {
+    margin-top: 5px;
+
+    .results-title {
+      margin-bottom: 20px;
+    }
+
+    .table-backdrop {
+      background-color: $home-backdrop;
+      margin: -10px;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    table {
+      font-size: 0.8em;
+    }
+
+    table.results-table {
+      border: 1px;
+      font-size: .8em;
+
+      td {
+        padding: 5px;
+      }
+    }
+
+  }
+
+  .form_buttons {
+    display: flex;
+    form {
+      margin-right: 10px;
+    }
+  }
+
+  .navigate-buttons {
+    input[type=submit] {
+      margin-right: 10px;
+    }
+  }
+}

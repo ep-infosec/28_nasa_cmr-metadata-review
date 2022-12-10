@@ -1,0 +1,337 @@
+
+first:
+  id: 1
+  recordable_id: 1
+  recordable_type: "Collection"
+  revision_id: "8"
+  state: "in_arc_review"
+  format: "echo10"
+  daac: PODAAC
+
+granule:
+  id: 5
+  recordable_id: 1
+  recordable_type: "Granule"
+  revision_id: "1"
+  state: "in_arc_review"
+  format: "echo10"
+  daac: PODAAC
+
+metric1:
+  id: 10
+  recordable_id: 2
+  recordable_type: "Collection"
+  revision_id: "8"
+  format: "dif10"
+  daac: PODAAC
+
+metric2:
+  id: 11
+  recordable_id: 3
+  recordable_type: "Collection"
+  revision_id: "8"
+  format: "dif10"
+  daac: PODAAC
+  state: "in_arc_review"
+
+in_daac_review:
+  id: 12
+  recordable_id: 1
+  recordable_type: "Collection"
+  revision_id: "9"
+  state: "in_daac_review"
+  format: "echo10"
+  daac: PODAAC
+
+in_arc_review:
+  id: 13
+  recordable_id: 1
+  recordable_type: "Collection"
+  revision_id: "6"
+  state: "in_arc_review"
+  format: "dif10"
+
+podaac_in_daac_review:
+  id: 14
+  recordable_id: 2
+  recordable_type: "Collection"
+  revision_id: "7"
+  state: "in_daac_review"
+  format: "dif10"
+
+closed:
+  id: 15
+  recordable_id: 2
+  recordable_type: "Collection"
+  revision_id: 4
+  state: "closed"
+  format: "dif10"
+
+open_granule:
+  id: 16
+  recordable_id: 1
+  recordable_type: "Granule"
+  revision_id: "6"
+  state: "open"
+  format: "echo10"
+
+in_daac_review_granule:
+  id: 17
+  recordable_id: 1
+  recordable_type: "Granule"
+  revision_id: "19"
+  state: "in_daac_review"
+  format: "echo10"
+
+in_ready_for_daac_review_collection:
+  id: 18
+  recordable_id: 1
+  recordable_type: "Collection"
+  revision_id: "20"
+  state: "ready_for_daac_review"
+  format: "echo10"
+
+in_ready_for_daac_review_granule:
+  id: 19
+  recordable_id: 1
+  recordable_type: "Granule"
+  revision_id: "21"
+  state: "ready_for_daac_review"
+  format: "echo10"
+
+copy_recommendations1:
+  id: 20
+  recordable_id: 1
+  recordable_type: "Collection"
+  revision_id: "4"
+  state: "open"
+  format: "echo10"
+  daac: PODAAC
+
+copy_recommendations2:
+  id: 21
+  recordable_id: 1
+  recordable_type: "Collection"
+  revision_id: "5"
+  state: "open"
+  format: "echo10"
+  daac: PODAAC
+
+digest_email_collection:
+  id: 22
+  recordable_id: 4
+  recordable_type: Collection
+  state: in_daac_review
+  revision_id: 1
+  released_to_daac_date: 2002-10-31 00:00:00 -0500
+  daac: OB_DAAC
+
+digest_email_granule:
+  id: 23
+  recordable_id: 2
+  recordable_type: Granule
+  state: in_daac_review
+  revision_id: 1
+  released_to_daac_date: 2002-10-31 00:00:00 -0500
+  daac: OB_DAAC
+
+digest_email_collection2:
+  id: 24
+  recordable_id: 4
+  recordable_type: Collection
+  state: in_daac_review
+  revision_id: 1
+  released_to_daac_date: 2002-10-31 00:00:00 -0500
+  daac: NSIDC
+
+digest_email_collection3:
+  id: 25
+  recordable_id: 5
+  recordable_type: Collection
+  state: in_daac_review
+  revision_id: 1
+  released_to_daac_date: 2002-10-31 00:00:00 -0500
+  daac: OB_DAAC
+
+mdq_enabled_collection1:
+  id: 26
+  recordable_id: 6
+  recordable_type: Collection
+  state: in_arc_review
+  revision_id: 1
+  daac: JAXA
+
+mdq_enabled_collection2:
+  id: 27
+  recordable_id: 7
+  recordable_type: Collection
+  state: in_arc_review
+  revision_id: 1
+  daac: PODAAC
+
+mdq_enabled_collection3:
+  id: 28
+  recordable_id: 6
+  recordable_type: Collection
+  state: in_daac_review
+  revision_id: 1
+  daac: JAXA
+
+mdq_enabled_collection4:
+  id: 29
+  recordable_id: 7
+  recordable_type: Collection
+  state: in_daac_review
+  revision_id: 1
+  daac: PODAAC
+
+campaign_collection1:
+  id: 30
+  recordable_id: 8
+  recordable_type: Collection
+  state: in_daac_review
+  revision_id: 1
+  daac: PODAAC
+  campaign:
+    - TESTCAMP1
+    - TESTCAMP2
+
+campaign_collection2:
+    id: 31
+    recordable_id: 9
+    recordable_type: Collection
+    state: in_daac_review
+    revision_id: 1
+    daac: PODAAC
+    campaign:
+      - TESTCAMP2
+
+campaign_collection3:
+    id: 32
+    recordable_id: 10
+    recordable_type: Collection
+    state: in_daac_review
+    revision_id: 1
+    daac: OB_DAAC
+    campaign:
+      - TESTCAMP1
+
+campaign_collection4:
+  id: 33
+  recordable_id: 8
+  recordable_type: Collection
+  state: open
+  revision_id: 1
+  daac: PODAAC
+  campaign:
+    - TESTCAMP3
+    - TESTCAMP4
+
+campaign_collection5:
+    id: 34
+    recordable_id: 9
+    recordable_type: Collection
+    state: open
+    revision_id: 1
+    daac: PODAAC
+    campaign:
+      - TESTCAMP4
+
+campaign_collection6:
+    id: 35
+    recordable_id: 10
+    recordable_type: Collection
+    state: open
+    revision_id: 1
+    daac: OB_DAAC
+    campaign:
+      - TESTCAMP3
+
+campaign_collection7:
+  id: 36
+  recordable_id: 11
+  recordable_type: Collection
+  state: open
+  revision_id: 1
+  daac: JAXA
+  campaign:
+    - TESTCAMP5
+    - TESTCAMP6
+
+campaign_collection8:
+    id: 37
+    recordable_id: 12
+    recordable_type: Collection
+    state: open
+    revision_id: 1
+    daac: SCIOPS
+    campaign:
+      - TESTCAMP6
+
+campaign_collection9:
+    id: 38
+    recordable_id: 13
+    recordable_type: Collection
+    state: open
+    revision_id: 1
+    daac: JAXA
+    campaign:
+      - TESTCAMP5
+
+associated_granule_record:
+  id: 39
+  recordable_id: 4
+  recordable_type: "Granule"
+  revision_id: "1"
+  state: "in_daac_review"
+  format: "dif10"
+
+collection_with_association_rev_1:
+  id: 40
+  recordable_id: 14
+  recordable_type: "Collection"
+  revision_id: "1"
+  state: "in_daac_review"
+  format: "dif10"
+  associated_granule_value: 39
+
+collection_with_association_rev_2:
+  id: 41
+  recordable_id: 14
+  recordable_type: "Collection"
+  revision_id: "2"
+  state: "in_daac_review"
+  format: "dif10"
+  associated_granule_value: 39
+
+iso_collection_record:
+  id: 42
+  recordable_id: 15
+  recordable_type: "Collection"
+  revision_id: "1"
+  state: "in_arc_review"
+  format: "umm_json"
+  native_format: "iso19115"
+  associated_granule_value: 39
+  daac: PODAAC
+
+iso_smap_collection_record:
+  id: 43
+  recordable_id: 16
+  recordable_type: "Collection"
+  revision_id: "1"
+  state: "in_arc_review"
+  format: "umm_json"
+  native_format: "iso-smap"
+  associated_granule_value: 39
+  daac: PODAAC
+report_collection_record:
+  id: 44
+  recordable_id: 17
+  recordable_type: "Collection"
+  revision_id: "1"
+  state: "in_daac_review"
+  format: "echo10"
+  native_format: "echo10"
+  daac: OB_DAAC
+

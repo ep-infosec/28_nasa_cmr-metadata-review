@@ -1,0 +1,33 @@
+<% closed ||= false %>
+<% reviews ||= false %>
+<% section ||= "open" %>
+
+<div class="table-backdrop">
+  <div class="results-title">
+    <p><strong><%= title %>:</strong>
+      <% if title == "In DAAC Review" && @invalid_keywords.length > 0 %>
+        <span class="invalid_keywords_tooltip">
+          <img class="invalid_keywords_alert_icon" src="<%= asset_path('warning-icon.png') %>"  />
+          <span class="invalid_keywords_tooltiptext">There are <%= @invalid_keywords.length %> invalid keywords found across <%= get_concepts(@invalid_keywords).length %> collection records.   See the Reports Menu to download a CSV of issues found.</span>
+        </span>
+      <% end %>
+    </p>
+  </div>
+
+  <!-- Todo: Verify AuthenticityToken issue is fixed in RAILS 6.0 -->
+  <!-- See CMRARC-484 and https://github.com/rails/rails/issues/24257-->
+  <!-- During the RAILS 5.2 upgrade, there was an issue with the CSRF authenticity tokens.   Namely, this specific-->
+  <!-- workflow:  if a user clicks See Review Details, then clicks Curation Home, then clicks Revert Record,-->
+  <!-- they will get a Invalid Authenticity Token.   Workaround is to tell form_with it should not auto include the-->
+  <!-- token, rather we should explicitly include it ourselves. -->
+  <%= form_with( url: collection_path(id: 1), method: :put, local: true,  id: form_id, authenticity_token: false) do %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <div class="results-table-container">
+      <div class="table-scroll">
+        <%= react_component("view/PaginationTableView", { section: section, formId: form_id, current_user: current_user.id, admin: current_user.admin?, role: current_user.role }) %>
+      </div>
+      <%= content_for :form_buttons %>
+    </div>
+  <% end %>
+</div>

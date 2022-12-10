@@ -1,0 +1,347 @@
+first:
+  id: 1
+  record_id: 1
+  column_name: "ShortName"
+  value: "A2_DySno_NRT"
+  last_updated: null
+  color: "red"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+
+second:
+  id: 5
+  record_id: 5
+  column_name: "ShortName"
+  value: "A2_DySno_NRT2"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+
+fourth:
+  id: 7
+  record_id: 1
+  column_name: "LongName"
+  value: "Test_Long_Name"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+
+fifth:
+  id: 8
+  record_id: 5
+  column_name: "LongName"
+  value: "Test_Long_Name2"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+sixth:
+  id: 9
+  record_id: 1
+  column_name: "VersionId"
+  value: "0"
+  last_updated: null
+  color: "white"
+  script_comment: "ok"
+  opinion: true
+  flag: []
+  recommendation: "ok"
+
+metric1:
+  id: 10
+  record_id: 10
+  column_name: "VersionId"
+  value: "0"
+  last_updated: null
+  color: "yellow"
+  script_comment: "ok"
+  opinion: true
+  flag: []
+  recommendation: "ok"
+
+metric2:
+  id: 11
+  record_id: 10
+  column_name: "ShortName"
+  value: "0"
+  last_updated: null
+  color: "red"
+  script_comment: "ok"
+  opinion: true
+  flag: ["Usability"]
+  recommendation: "ok"
+
+metric3:
+  id: 12
+  record_id: 11
+  column_name: "VersionId"
+  value: "0"
+  last_updated: null
+  color: "yellow"
+  script_comment: "ok"
+  opinion: true
+  flag: []
+  recommendation: "ok"
+
+metric4:
+  id: 13
+  record_id: 11
+  column_name: "ShortName"
+  value: "0"
+  last_updated: null
+  color: "red"
+  script_comment: "ok"
+  opinion: true
+  flag: ["Accessibility"]
+  recommendation: "ok"
+
+in_daac_review_short_name:
+  id: 20
+  record_id: 12
+  column_name: "ShortName"
+  value: "A2_DySno_NRTb"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+
+in_daac_review_long_name:
+  id: 21
+  record_id: 12
+  column_name: "LongName"
+  value: "Test_Long_Name"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+
+in_daac_review_version_id:
+  id: 22
+  record_id: 12
+  column_name: "VersionId"
+  value: "0"
+  last_updated: null
+  color: "white"
+  script_comment: "ok"
+  opinion: true
+  flag: []
+  recommendation: "ok"
+
+copy_recomendations1_record_data_a:
+  id: 23
+  record_id: 20
+  column_name: "ShortName"
+  value: "A2_DySno_NRT"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+copy_recomendations1_record_data_b:
+  id: 24
+  record_id: 20
+  column_name: "LongName"
+  value: "Test_Long_Name"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+copy_recomendations1_record_data_c:
+  id: 25
+  record_id: 20
+  column_name: "VersionId"
+  value: "0"
+  last_updated: null
+  color: "white"
+  script_comment: "ok"
+  opinion: true
+  flag: []
+  recommendation: "ok"
+
+copy_recomendations1_record_data_d:
+  id: 26
+  record_id: 20
+  column_name: "Keyword"
+  value: "Column not in revision 5"
+  last_updated: null
+  color: "white"
+  script_comment: "ok"
+  opinion: true
+  flag: []
+  recommendation: "ok"
+
+copy_recomendations2_record_data_a:
+  id: 27
+  record_id: 21
+  column_name: "ShortName"
+  value: "A2_DySno_NRT"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+copy_recomendations2_record_data_b:
+  id: 28
+  record_id: 21
+  column_name: "LongName"
+  value: "Test_Long_Name"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+copy_recomendations2_record_data_c:
+  id: 29
+  record_id: 21
+  column_name: "VersionId"
+  value: "1"
+  last_updated: null
+  color: "white"
+  script_comment: "ok"
+  opinion: true
+  flag: []
+  recommendation: "ok"
+
+copy_recomendations2_record_data_d:
+  id: 30
+  record_id: 21
+  column_name: "EntryTitle"
+  value: "Column not in revision 4"
+  last_updated: null
+  color: "white"
+  script_comment: "ok"
+  opinion: true
+  flag: []
+  recommendation: "ok"
+
+digest_email_granule_granule_ur:
+  id: 31
+  record_id: 23
+  column_name: GranuleUR
+  value: Test GranuleUR
+
+digest_email_collection_short_name:
+  id: 32
+  record_id: 22
+  column_name: ShortName
+  value: Test Short Name
+
+digest_email_collection2_short_name:
+  id: 33
+  record_id: 24
+  column_name: ShortName
+  value: Test Short Name2
+
+digest_email_collection3_short_name:
+  id: 34
+  record_id: 25
+  column_name: ShortName
+  value: Test Short Name3
+
+associating_granule_to_collection:
+  id: 35
+  record_id: 16
+  column_name: ShortName
+  value: Test Short Name3
+  opinion: true
+
+iso_collection_1_short_name:
+  id: 36
+  record_id: 42
+  column_name: "ShortName"
+  value: "Test Iso Collection 1 Short Name"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+iso_collection_1_data_language:
+  id: 37
+  record_id: 42
+  column_name: "DataLanguage"
+  value: "eng"
+  last_updated: null
+  color: "white"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+iso_collection_2_short_name:
+  id: 38
+  record_id: 43
+  column_name: "ShortName"
+  value: "Test Iso Collection 1 Short Name"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+iso_collection_2_data_language:
+  id: 39
+  record_id: 43
+  column_name: "DataLanguage"
+  value: "eng"
+  last_updated: null
+  color: "white"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+report_record_data:
+  id: 40
+  record_id: 14
+  column_name: "ShortName"
+  value: "MODISA_L3m_CHL"
+  last_updated: null
+  color: "green"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"
+
+granule_red_longname:
+  id: 41
+  record_id: 39
+  column_name: "LongName"
+  value: "Test_Long_Name"
+  last_updated: null
+  color: "red"
+  script_comment: "ok"
+  opinion: false
+  flag: []
+  recommendation: "ok"

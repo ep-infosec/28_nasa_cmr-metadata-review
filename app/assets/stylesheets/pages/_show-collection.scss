@@ -1,0 +1,166 @@
+.record_show_box {
+  border-radius: 10px;
+  border: solid 2px;
+  background-color:white;
+  width:1000px;
+  margin: 50px auto;
+  padding-left:40px;
+  padding-right:40px;
+  padding-bottom:40px;
+
+  .space_box {
+    height:15px; 
+    width:80px;
+  }
+
+  .collection_title {
+    font-size:0.8em;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: $gray-dark;
+    display: inline-block;
+    flex-grow: 1;
+
+    h3 {
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+
+  }
+
+  .left_box {
+    margin-right:15px;
+  }
+
+  .collection_revision_header, .granules_revision_header {
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    font-size: 1em;
+  }
+
+  .group_box {
+    display: inline-block;
+    width:400px;
+
+    h3 {
+      font-size:1em;
+    }
+
+    h4 {
+      color: black;
+      font-size: 0.9em;
+      margin-top: 0px;
+    }
+
+    table {
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+
+    .review_actions {
+      .ingest_score {
+        font-size: 0.9em;
+        padding-left:4px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: $gray-dark;
+        background-color: white;
+        margin-bottom: 10px;
+      }
+    }
+
+  }
+  
+  .no_results {
+    text-align: center;
+    color: $gray-dark;
+  }
+
+  #ingest_replace {
+    margin-left: 0.5em;
+    background-color: $red;
+  }
+
+  #granule_review_link {
+    float: left;
+  }
+
+}
+
+.indicator_for_granule_deleted_in_cmr {
+  color: red;
+}
+.indicator_for_has_new_granule_revision {
+  color: blue;
+}
+
+.ingest_buttons {
+  font-size: .8em;
+  display: inline;
+  float: left;
+  margin-right: 5px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.edit_collection_in_mmt_link {
+  width: 250px;
+  margin-right: 50px;
+}
+
+#associated_granule_value {
+  width: 200px;
+}
+
+
+.revision_id_over_collection {
+  border-style: solid;
+  border-width: 2px;
+  border-color: yellow;
+}
+
+.mouse_over_draggable {
+  cursor: grab;
+}
+
+.collection_granule_revision_row {
+  height: 60px;
+  vertical-align: middle;
+}
+
+.revision_table {
+  border: 1px;
+}
+
+.revision_table td {
+  padding: 5px;
+}
+
+.revision_review_table {
+  border: 1px;
+}
+
+.revision_review_table td {
+  padding: 5px;
+}
+
+.group_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.record_show_header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+
+
+
+

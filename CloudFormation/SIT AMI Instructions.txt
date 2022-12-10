@@ -1,0 +1,77 @@
+//take base vpc template and setup on empty ec2 with aws linux
+
+sudo yum -y update
+sudo yum remove ruby 
+//removing the ruby gems, so need to run same command again
+sudo yum remove ruby
+
+sudo yum install ruby23-devel.x86_64
+sudo yum install git
+sudo yum install nginx
+sudo yum install postgresql8-devel.x86_64
+sudo yum -y install gcc zlib-devel.x86_64  
+sudo yum install sqlite-devel
+sudo yum install gcc-c++
+sudo yum install -y awslogs
+
+//installing node
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install 4.4.5
+
+//creating working dir
+git clone https://USER:PASSWORD@git.earthdata.nasa.gov/scm/cmrarc/cmr-metadata-review.git
+
+//enter directory
+cd cmr-metadata-review
+gem install bundler --no-rdoc --no-ri
+bundle install
+
+//open this file to set up the nginx settings for rails
+sudo vi /etc/nginx/nginx.conf
+
+//In the nginx.conf file, add the text block below
+//added in http section of .conf file
+
+    upstream arcdash {
+        server 127.0.0.1:3000;
+    }
+
+    //change root in server area to public for assets
+    root         /home/ec2-user/cmr-metadata-review/public;
+
+    //adding this for elb checks
+    location /elb_status {
+        proxy_pass http://arcdash;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location / {
+            //redirecting all traffic to https for elb to terminate
+            if ($http_x_forwarded_proto = 'http') {
+                return 301 https://arc-review.sit.clients.element84.com$request_uri;
+            }
+            proxy_pass http://arcdash;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+
+
+
+//Setting up the AWS Logging
+//go into the file below
+sudo vi /etc/awslogs/awslogs.conf
+
+//paste the text block below over the preexisting config
+//aws log config:
+datetime_format = %Y-%m-%dT%H:%M:%S
+file = /home/ec2-user/cmr-metadata-review/log/production.log
+buffer_duration = 5000
+log_stream_name = {instance_id}
+initial_position = end_of_file
+log_group_name = /aws/cmr/sit_rails_log
+
+
+//Finally save an image from this server to be used in the CF scripts

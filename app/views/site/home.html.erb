@@ -1,0 +1,76 @@
+<%= render(partial: 'shared/navigation', locals: {title: "METADATA CURATION: HOME"}) %>
+
+
+<div class="curation_box">
+
+  <div class="space_box"></div>
+  <% if can?(:search, :cmr) %>
+    <div class="searchbox_area">
+      <p><strong>Search the CMR Database for Data Ingest:</strong></p>
+
+      <%= form_with( url: collections_search_path, method: "get", local: true) do %>
+        <%= select_tag(:provider,options_for_select(provider_select_list, :selected => @provider)) %>
+        <%= text_field_tag(:free_text) %>
+        <%= hidden_field_tag(:curr_page, "1") %>
+        <%#= submit_tag("Search") %>
+        <button class="search_button" id="search_button">
+          <i class="eui-icon eui-fa-search"></i>
+        </button>
+      <% end %>
+
+      <script type="text/javascript">
+        document.getElementById("search_button").onclick = function() {
+          showLoading("Searching CMR System");
+        }
+
+      </script>
+
+    </div>
+  <% end %>
+
+
+  <div class="results-area">
+    <%= render "shared/record_filters" %>
+
+    <% if can?(:review_state, Record::STATE_OPEN) %>
+      <% content_for :form_buttons do %>
+        <%= render(partial: "shared/record_buttons", locals: {form_id: "open", report: true}) %>
+      <% end %>
+
+      <%= render partial: "shared/records_table", locals: { form_id: "open", title: "Unreviewed Records", section: "open" } %>
+    <% end %>
+
+    <% if can?(:review_state, Record::STATE_IN_ARC_REVIEW) %>
+      <% content_for :form_buttons, flush: true do %>
+        <%= render(partial: "shared/record_buttons", locals: {form_id: "in_arc_review", report: true}) %>
+      <% end %>
+
+      <%= render partial: "shared/records_table", locals: { form_id: "in_arc_review", reviews: true, title: title_for_in_review_records(), section: "in_arc_review" } %>
+    <% end %>
+
+
+    <% if can?(:review_state, Record::STATE_READY_FOR_DAAC_REVIEW) %>
+      <% content_for :form_buttons, flush: true do %>
+        <%= render(partial: "shared/record_buttons", locals: { form_id: "awaiting_daac_review", report: true, complete: can?(:release_to_daac, Record), complete_title: "Release to DAAC" }) %>
+      <% end %>
+
+      <%= render partial: "shared/records_table", locals: { form_id: "awaiting_daac_review", reviews: true, title: "Awaiting Release to DAAC", section: "ready_for_daac_review" } %>
+    <% end %>
+
+    <% if can?(:review_state, Record::STATE_IN_DAAC_REVIEW) %>
+      <% content_for :form_buttons, flush: true do %>
+        <%= render(partial: "shared/record_buttons", locals: { form_id: "in_daac_review", report: true, complete: can?(:close, Record), complete_title: "Close" }, section: "closed_finished" ) %>
+      <% end %>
+
+      <%= render partial: "shared/records_table", locals: { form_id: "in_daac_review", reviews: true, title: "In DAAC Review", section: "in_daac_review" } %>
+    <% end %>
+
+    <% if can?(:provide_feedback, Record) %>
+      <% content_for :form_buttons, flush: true do %>
+        <%= render(partial: "shared/record_buttons", locals: {form_id: "provide_feedback", report: true}) %>
+      <% end %>
+
+      <%= render partial: "shared/records_table", locals: {form_id: "provide_feedback", reviews: true, title: "Requires Reviewer Feedback Records", section: "curator_feedback" } %>
+    <% end %>
+  </div>
+</div>

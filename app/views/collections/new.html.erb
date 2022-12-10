@@ -1,0 +1,124 @@
+<%= render(partial: 'shared/navigation', locals: {title: "METADATA CURATION: COLLECTION DETAIL"}) %>
+
+<div class="ingest_box">
+
+  <div class="space_box"></div>
+
+  <div class="box_title">
+    <p><strong>New Collection Data:</strong></p>
+  </div>
+
+    <table cellpadding="5" border="1">
+          <tr>
+              <td>Concept_ID</td>
+              <td>Revision_ID</td>
+              <td>ShortName</td>
+              <td>Version</td>
+          </tr>
+          <tr>
+              <td><%= @concept_id %></td>
+              <td><%= @revision_id %></td>
+              <td><%= @short_name %></td>
+              <td><%= @version %></td>
+          </tr>
+    </table>
+
+    <div class="ingest_state">
+      <% unless @already_ingested %>
+        <% if @granule_count < 3 %>
+          <% if @granule_count < 1 %>
+            <p>No Granules Associated with This Collection</p>
+
+
+            <!-- Todo: Verify AuthenticityToken issue is fixed in RAILS 6.0 -->
+            <!-- See CMRARC-484 and https://github.com/rails/rails/issues/24257-->
+            <!-- During the RAILS 5.2 upgrade, there was an issue with the CSRF authenticity tokens.   Namely, this specific-->
+            <!-- workflow:  if a user clicks See Review Details, then clicks Curation Home, then clicks Revert Record,-->
+            <!-- they will get a Invalid Authenticity Token.   Workaround is to tell form_with it should not auto include the-->
+            <!-- token, rather we should explicitly include it ourselves. -->
+            <%= form_with( url: collections_path , method: "post", id: "collection_form", local:true, authenticity_token: false ) do %>
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <%= hidden_field_tag(:concept_id, @concept_id) %>
+              <%= hidden_field_tag(:revision_id, @revision_id) %>
+              <%= submit_tag("Ingest Collection Without Granule", id: 'ingest_submit', class: 'selectButton') %>
+            <% end %>
+          <% else %>
+            <p>Total Granules in this Collection: <%= @granule_count %></p>
+            <!-- Todo: Verify AuthenticityToken issue is fixed in RAILS 6.0 -->
+            <!-- See CMRARC-484 and https://github.com/rails/rails/issues/24257-->
+            <!-- During the RAILS 5.2 upgrade, there was an issue with the CSRF authenticity tokens.   Namely, this specific-->
+            <!-- workflow:  if a user clicks See Review Details, then clicks Curation Home, then clicks Revert Record,-->
+            <!-- they will get a Invalid Authenticity Token.   Workaround is to tell form_with it should not auto include the-->
+            <!-- token, rather we should explicitly include it ourselves. -->
+            <%= form_with( url: collections_path ,  method: "post", id: "collection_form", local: true, authenticity_token: false) do %>
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <%= hidden_field_tag(:concept_id, @concept_id) %>
+              <%= hidden_field_tag(:revision_id, @revision_id) %>
+              <%= hidden_field_tag(:granulesCount, '1') %>
+              <%= submit_tag("Ingest Collection With Granule", id: 'ingest_submit', class: 'selectButton') %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>Total Granules in this Collection: <%= @granule_count %></p>
+          <!-- Todo: Verify AuthenticityToken issue is fixed in RAILS 6.0 -->
+          <!-- See CMRARC-484 and https://github.com/rails/rails/issues/24257-->
+          <!-- During the RAILS 5.2 upgrade, there was an issue with the CSRF authenticity tokens.   Namely, this specific-->
+          <!-- workflow:  if a user clicks See Review Details, then clicks Curation Home, then clicks Revert Record,-->
+          <!-- they will get a Invalid Authenticity Token.   Workaround is to tell form_with it should not auto include the-->
+          <!-- token, rather we should explicitly include it ourselves. -->
+          <%= form_with( url: collections_path , method: "post", id: "collection_form", local: true, authenticity_token: false) do %>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <%= hidden_field_tag(:concept_id, @concept_id) %>
+              <%= hidden_field_tag(:revision_id, @revision_id) %>
+              <%= hidden_field_tag(:granulesCount, '1') %>
+              <%= submit_tag("Ingest Collection With Granule", id: 'ingest_submit', class: 'selectButton') %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>This record has already been ingested into the system for review</p>
+        <% if !@cmr_update %>
+          <p>This record has been set to receive no further updates from CMR</p>
+        <% end %>
+      <% end %>  
+    </div>  
+
+</div>
+
+
+
+<script type="text/javascript">
+  document.getElementById('ingest_submit').onclick = function() {
+
+    // document.getElementById('processing-modal').style.visibility = "visible";
+    document.getElementById('ingest_submit').value = "Processing Record Ingest";
+    document.getElementById('ingest_submit').disabled = true;
+    document.forms["collection_form"].submit();
+
+    showLoading("Processing Record Ingest");
+  };
+</script>
+
+
+<style type="text/css">
+  .modal-static { 
+    position: fixed;
+    top: 60% !important; 
+    left: 15% !important; 
+    margin-top: -100px;  
+    margin-left: -100px; 
+    overflow: visible !important;
+}
+.modal-static,
+.modal-static .modal-dialog,
+.modal-static .modal-content {
+    width: 200px; 
+    height: 200px; 
+}
+.modal-static .modal-dialog,
+.modal-static .modal-content {
+    padding: 0 !important; 
+    margin: 0 !important;
+}
+.modal-static .modal-content .icon {
+}
+</style>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CmrMetadataReview</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_pack_tag 'application' %>
+  <%= stylesheet_pack_tag 'application' %>
+
+  <%# See https://guides.rubyonrails.org/security.html#csrf-countermeasures %>
+  <%# See https://medium.com/rubyinside/a-deep-dive-into-csrf-protection-in-rails-19fa0a42c0ef %>
+  <%= csrf_meta_tags %>
+  <%= render partial: 'shared/google_tag_manager_head' %>
+</head>
+<body>
+<%= render partial: 'shared/google_tag_manager_body' %>
+<!--<div id="gradient"></div>-->
+<div class="th-wrapper">
+  <header id="earthdata-tophat2"/>
+</div>
+<div class="wrapper">
+  <%= yield %>
+  <div class="push">
+</div>
+  <!-- For pushing the footer to the bottom of a page with minimal content -->
+</div>
+<%= render(partial: 'shared/footer') %>
+<!-- Scripts that should be loaded in the footer to allow for faster page loads -->
+<script id="feedback-tag" src="https://fbm.earthdata.nasa.gov/for/CMRARC/feedback.js"></script>
+<script type="text/javascript">
+  (function () {
+    var initFeedback = function () {
+      window.feedback.init({showIcon: false});
+    }
+    if (window.feedback) {
+      initFeedback();
+    }
+    else {
+      document.getElementById('feedback-tag').onload = initFeedback;
+    }
+  })();
+</script>
+
+<!-- Tophat -->
+<script src="https://cdn.earthdata.nasa.gov/tophat2/tophat2.js"
+        id="earthdata-tophat-script"
+        data-show-fbm="true"
+        data-show-status="true"
+        data-status-api-url="https://status.earthdata.nasa.gov/api/v1/notifications">
+</script>
+
+<!-- End tophat -->
+
+</body>
+</html>

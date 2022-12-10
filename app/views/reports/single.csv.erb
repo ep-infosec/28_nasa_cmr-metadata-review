@@ -1,0 +1,15 @@
+<%= CSV.generate_line(["CMR Single Record Report"]) %>
+
+<%= CSV.generate_line(["Concept Id", "Short Name", "DAAC", "Review Close Date"]) %>
+<%= CSV.generate_line([@record.concept_id.partition('-').first, @record.short_name, @record.daac, @record.formatted_closed_date]).html_safe %>
+<%= CSV.generate_line(["Reviewer", "Date of Review"]) %>
+<% @record.reviews.each do |review| %>
+  <%= CSV.generate_line([review.reviewer_email, review.formatted_date]).html_safe %>
+<% end %>
+
+<% ["red", "yellow", "blue"].each do |color| %>
+  <%= CSV.generate_line(["#{color.capitalize} Flagged Elements", "Element", "Value", "Recommendation", "Script Result"]) %>
+  <% record_data_colors(@record, color).each do |element| %>
+    <%= CSV.generate_line([nil, element.column_name, element.value, element.recommendation, element.script_comment]).html_safe %>
+  <% end %>
+<% end %>

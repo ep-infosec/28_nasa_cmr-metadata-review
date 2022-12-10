@@ -1,0 +1,84 @@
+first:
+  id: 1
+  concept_id: "C1000000020-LANCEAMSR2"
+  short_name: "A2_DySno_NRT"
+
+metric1:
+  id: 2
+  concept_id: "metric1-PODAAC"
+  short_name: "metric1"
+
+metric2:
+  id: 3
+  concept_id: "metric3-PODAAC"
+  short_name: "metric3"
+  
+daac_curator_mailer_collection:
+  id: 4
+  concept_id: "daac_curator_mailer_collection-OB_DAAC"
+  short_name: "daac_curator_mailer_collection"
+
+daac_curator_mailer_collection2:
+  id: 5
+  concept_id: "daac_curator_mailer_collection2-OB_DAAC"
+  short_name: "daac_curator_mailer_collection2"
+
+mdq_enabled_collection1:
+  id: 6
+  concept_id: "mdq_curator_collection"
+  short_name: "mdq_curator_collection"
+
+mdq_enabled_collection2:
+  id: 7
+  concept_id: "arc_curator_collection"
+  short_name: "arc_curator_collection"
+  
+campaign_collection1:
+  id: 8
+  concept_id: "campaign_test_collection_1-PODAAC"
+  short_name: "Campaign Test Short Name 1"
+  
+campaign_collection2:
+  id: 9
+  concept_id: "campaign_test_collection_2-PODAAC"
+  short_name: "Campaign Test Short Name 2"
+  
+campaign_collection3:
+  id: 10
+  concept_id: "campaign_test_collection_3-OB_DAAC"
+  short_name: "Campaign Test Short Name 3"
+  
+campaign_collection4:
+  id: 11
+  concept_id: "campaign_test_collection_4-JAXA"
+  short_name: "Campaign Test Short Name 4"
+  
+campaign_collection5:
+  id: 12
+  concept_id: "campaign_test_collection_5-SCIOPS"
+  short_name: "Campaign Test Short Name 5"
+  
+campaign_collection6:
+  id: 13
+  concept_id: "campaign_test_collection_6-JAXA"
+  short_name: "Campaign Test Short Name 6"
+
+collection_with_association:
+  id: 14
+  concept_id: "status_update_test_collection_1-SCIOPS"
+  short_name: "Granule Status Update Test Collection 1"
+
+iso_collection1:
+  id: 15
+  concept_id: "iso_collection_test_1"
+  short_name: "Test Iso Collection 1"
+
+iso_collection2:
+  id: 16
+  concept_id: "iso_collection_test_2"
+  short_name: "Test Iso Collection 2"
+report_collection:
+  id: 17
+  concept_id: "C1200019523-OB_DAAC"
+  short_name: "MODISA_L3m_CHL"
+
